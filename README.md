@@ -93,14 +93,14 @@ pnpm betting-market:client-dev
 
 The contract has already been deployed and can be used as is.
 
-terminal1
+set your env under packages>betting-client
 ```
-pnpm i
-anvil
+# 17069 is garnet, 31337 is local test
+VITE_CHAIN_ID=690
 ```
 
-terminal2 
 ```
+pnpm i
 pnpm betting-market:client-build
 pnpm betting-market:client-dev
 ```
