@@ -1,0 +1,11 @@
+cache/
+node_modules/
+bindings/
+artifacts/
+abi/
+broadcast/
+.env
+.mudtest
+
+# Ignore all deploy artifacts
+deploys/**/*.json

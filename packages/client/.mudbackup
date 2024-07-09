@@ -1,0 +1,14 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "@latticexyz/cli": "2.0.0-alpha.1.197",
+    "@latticexyz/ecs-browser": "2.0.0-alpha.1.197",
+    "@latticexyz/network": "2.0.0-alpha.1.197",
+    "@latticexyz/phaserx": "2.0.0-alpha.1.197",
+    "@latticexyz/react": "2.0.0-alpha.1.197",
+    "@latticexyz/recs": "2.0.0-alpha.1.197",
+    "@latticexyz/services": "2.0.0-alpha.1.197",
+    "@latticexyz/std-client": "2.0.0-alpha.1.197",
+    "@latticexyz/utils": "2.0.0-alpha.1.197"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "name": "skystrife",
+  "version": "0.0.0",
+  "description": "A mud on-chain RTS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/latticexyz/skystrife.git"
+  },
+  "private": true,
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --cache --fix",
+    "*.{ts,tsx,css,md,mdx,sol}": "prettier --write"
+  },
+  "scripts": {
+    "foundryup": "curl -L https://foundry.paradigm.xyz | bash && bash ~/.foundry/bin/foundryup",
+    "lint": "pnpm prettier:check && eslint . --ext .ts --ext .tsx",
+    "prepare": "husky install",
+    "prettier": "prettier --write '**/*.{ts,tsx,css,md,mdx,sol}'",
+    "prettier:check": "prettier --check '**/*.{ts,tsx,css,md,mdx,sol}'",
+    "MUD SCRIPTS": "---",
+    "mud:up": "pnpm recursive exec mud set-version -v canary && pnpm install",
+    "mud:link": "pnpm recursive exec mud set-version -l ../../../mud && pnpm install",
+    "---": "---",
+    "dev": "pnpm --filter ecs-browser run build && pnpm --filter phaserx run build && mprocs 'pnpm run dev:contracts && pnpm run dev:upload-map && pnpm run dev:create-debug-matches' 'pnpm run dev:client' 'pnpm run dev:node' 'pnpm run dev:plugins' 'pnpm run betting-market:client-dev' 'pnpm run betting-market:contracts-dev'",
+    "dev:client": "pnpm --filter client run dev",
+    "dev:contracts": "DEBUG=mud:* pnpm --filter contracts run dev",
+    "dev:node": "DEBUG=mud:* pnpm --filter contracts run devnode",
+    "dev:upload-map": "DEBUG=skystrife:* pnpm --filter headless-client run upload-map:dev",
+    "dev:create-debug-matches": "DEBUG=skystrife:* pnpm --filter headless-client run create-debug-matches:dev",
+    "dev:plugins": "pnpm --filter plugins run dev",
+    "dev:matchmaking": "pnpm --filter matchmaking-server run start",
+    "---CLOUDFLARE SCRIPTS---": "---",
+    "ci:build": "pnpm run ci:install-foundry && pnpm install && pnpm --filter ecs-browser run build && pnpm --filter phaserx run build && pnpm run ci:build-contracts && pnpm --filter client build",
+    "ci:install-foundry": "curl -L https://foundry.paradigm.xyz | bash && ~/.foundry/bin/foundryup",
+    "ci:build-contracts": "cd packages/contracts && ~/.foundry/bin/forge build && cd ../..",
+    "----Betting Market----": "---",
+    "betting-market:client-dev": "pnpm --filter betting-client run dev",
+    "betting-market:client-build": "pnpm --filter betting-client run build",
+    "betting-market:contracts-dev": "pnpm --filter betting-contracts run dev-deploy",
+    "betting-market:build-contracts": "pnpm --filter betting-contracts run build:mud"
+  },
+  "devDependencies": {
+    "@latticexyz/cli": "2.0.10-main-a3f8d77d",
+    "@typescript-eslint/eslint-plugin": "5.46.1",
+    "@typescript-eslint/parser": "6.6.0",
+    "eslint": "8.29.0",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "3.2.5",
+    "prettier-plugin-solidity": "1.3.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "mprocs": "0.6.4",
+    "wait-port": "1.0.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "@libp2p/multistream-select": "4.0.9"
+    }
+  }
+}

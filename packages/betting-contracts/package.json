@@ -1,0 +1,28 @@
+{
+  "name": "betting-contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "DEBUG=mud:* pnpm run build:mud && pnpm run build:abi && pnpm run build:abi-ts",
+    "build:abi": "forge build",
+    "build:abi-ts": "mud abi-ts",
+    "dev-deploy": "DEBUG=mud:* PRIVATE_KEY=0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d pnpm mud deploy --salt 0x111113 --rpc=http://127.0.0.1:8545",
+    "build:mud": "DEBUG=mud:* rimraf src/codegen && mud tablegen && mud worldgen",
+    "deploy:redstone": "DEBUG=mud:* mud deploy --profile=redstone"
+  },
+  "dependencies": {
+    "@latticexyz/cli": "2.0.10-main-a3f8d77d",
+    "@latticexyz/common": "2.0.10-main-a3f8d77d",
+    "@latticexyz/config": "2.0.10-main-a3f8d77d",
+    "@latticexyz/gas-report": "2.0.10-main-a3f8d77d",
+    "@latticexyz/schema-type": "2.0.10-main-a3f8d77d",
+    "@latticexyz/store": "2.0.10-main-a3f8d77d",
+    "@latticexyz/world": "2.0.10-main-a3f8d77d",
+    "@latticexyz/world-modules": "2.0.10-main-a3f8d77d",
+    "@openzeppelin/contracts": "4.9.3",
+    "dotenv": "16.4.4",
+    "forge-std": "github:foundry-rs/forge-std#b4f121555729b3afb3c5ffccb62ff4b6e2818fd3",
+    "solmate": "6.2.0"
+  }
+}

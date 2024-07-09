@@ -1,0 +1,39 @@
+declare const abi: [
+  {
+    type: "function";
+    name: "setHeroInRotation";
+    inputs: [
+      {
+        name: "template";
+        type: "bytes32";
+        internalType: "bytes32";
+      },
+      {
+        name: "inRotation";
+        type: "bool";
+        internalType: "bool";
+      },
+    ];
+    outputs: [];
+    stateMutability: "nonpayable";
+  },
+  {
+    type: "function";
+    name: "setHeroInSeasonPassRotation";
+    inputs: [
+      {
+        name: "template";
+        type: "bytes32";
+        internalType: "bytes32";
+      },
+      {
+        name: "inRotation";
+        type: "bool";
+        internalType: "bool";
+      },
+    ];
+    outputs: [];
+    stateMutability: "nonpayable";
+  },
+];
+export default abi;

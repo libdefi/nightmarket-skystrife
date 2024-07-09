@@ -1,0 +1,31 @@
+declare const abi: [
+  {
+    type: "function";
+    name: "uploadLevel";
+    inputs: [
+      {
+        name: "levelId";
+        type: "bytes32";
+        internalType: "bytes32";
+      },
+      {
+        name: "templateIds";
+        type: "bytes32[]";
+        internalType: "bytes32[]";
+      },
+      {
+        name: "xs";
+        type: "int32[]";
+        internalType: "int32[]";
+      },
+      {
+        name: "ys";
+        type: "int32[]";
+        internalType: "int32[]";
+      },
+    ];
+    outputs: [];
+    stateMutability: "nonpayable";
+  },
+];
+export default abi;

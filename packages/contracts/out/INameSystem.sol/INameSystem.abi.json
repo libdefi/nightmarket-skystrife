@@ -1,0 +1,15 @@
+[
+  {
+    "type": "function",
+    "name": "setName",
+    "inputs": [
+      {
+        "name": "name",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  }
+]
