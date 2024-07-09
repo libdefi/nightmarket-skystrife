@@ -1,2 +1,12 @@
-
-packages/betting-client/.env
+node_modules
+.eslintcache
+.DS_STORE
+.yalc
+.parcel-cache
+.mudbackup
+packages/headless-client/node_modules/
+packages/discord-bot/node_modules/
+packages/ecs-browser/node_modules/
+packages/art/node_modules/
+packages/matchmaking-server/node_modules/
+packages/plugins/node_modules/
